@@ -39,6 +39,9 @@ var Task = {
 
     chainCall: function(task)
     {
+        if (!Task.isPrototypeOf(task))
+            throw new Error('`task` must have `Task` in protype chain.');
+
         var args = [];
         for (var i = 1; i < arguments.length; i++)
             args.push(arguments[i]);
